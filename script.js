@@ -42,49 +42,26 @@ function playGame() {
     function playRound() {
         const computerChoice = getComputerChoice();
         const humanChoice = getHumanChoice();
-
-        switch(humanChoice) {
-            case "rock":
-                if(computerChoice == "paper") {
-                    console.log("Paper beats rock! The Computer wins the round!");
-                    winner = "computer"
-                    return winner;
-                } else if(computerChoice == "rock") {
-                    console.log("It's a draw!")
-                    break;
-                } else if(computerChoice == "scissors") {
-                    console.log("Rock beats scissors! Human wins the round!");
-                    winner = "human";
-                    return winner;
-                }
-            case "paper":
-                if(computerChoice == "paper") {
-                    console.log("It's a draw!");
-                    break;
-                } else if(computerChoice == "rock") {
-                    console.log("Paper beats rock! The Computer wins the round!");
-                    winner = "computer"
-                    return winner;
-                } else if(computerChoice == "scissors") {
-                    console.log("Rock beats scissors! Human wins the round!");
-                    winner = "human";
-                    return winner;
-                }
-            case "scissors":
-                if(computerChoice == "scissors") {
-                    console.log("It's a draw!");
-                    break;
-                } else if(computerChoice == "rock") {
-                    console.log("Rock beats scissors! The Computer wins the round!");
-                    winner = "computer"
-                    return winner;
-                } else if(computerChoice == "paper") {
-                    console.log("Scissors beat paper! Human wins the round!");
-                    winner = "human"
-                    return winner;
-                }
+    
+        if (humanChoice === computerChoice) {
+            console.log("It's a draw!");
+            return "draw";
         }
-    }
+    
+        const winningConditions = {
+            rock: "scissors",
+            paper: "rock",
+            scissors: "paper"
+        };
+    
+        if (winningConditions[humanChoice] === computerChoice) {
+            console.log(`${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${computerChoice}! Human wins the round!`);
+            return "human";
+        } else {
+            console.log(`${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${humanChoice}! The Computer wins the round!`);
+            return "computer";
+        }
+    }    
 
     for(let i = 0; i < 5; i++) {
         let winner = playRound();
@@ -111,4 +88,4 @@ function playGame() {
     }
 }
 
-playGame()
+// playGame()
