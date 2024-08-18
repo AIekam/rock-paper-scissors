@@ -1,3 +1,7 @@
+* {
+    font-family: "New Amsterdam";
+}
+
 body {
     margin: 0;
     display: flex;
@@ -8,32 +12,136 @@ body {
 
 /* HEADER STYLES */
 
-.header {
+.game-header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 6em;
-    background-color: #1E2022;
-    min-width: 444px;
+    height: 9em;
+    background-color: #11151C;
 }
 
 h1 {
     margin: 0;
-    color: #F0F5F9;
-    font-family: "Montserrat";
-    min-width: 444px;
+    color: #82FF9E;
+    font-size: 56px;
+}
+
+#header-text-rock {
+    color: #E6AF2E;
+}
+
+#header-text-paper {
+    color: #FBF5F3;
+}
+
+#header-text-scissors {
+    color: #EE4266;
 }
 
 /* CONTENT STYLES */
 
-.content {
+.game-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     flex-grow: 1;
-    background-color: #C9D6DF;
+    background-color: #11151C;
 }
 
-/* FOOTER STYLES */
 
-.footer {
-    height: 4em;
-    background-color: #1E2022;
+/* H2 HEADER */
+h2 {
+    color: #FBF5F3;
+    font-size: 48px;
+    margin: 0;
 }
+
+/* BUTTONS */
+
+.picks-container {
+    display: flex;
+    gap: 4em;
+    margin: 2.4em 0 0 0;
+}
+
+img {
+    width: 240px;
+    height: auto;
+    border-radius: 21%;
+}
+
+.pick--rock > img {
+    border: 5px solid #E6AF2E;
+}
+
+.pick--paper > img {
+    border: 5px solid #FBF5F3;
+}
+
+.pick--scissors > img {
+    border: 5px solid #EE4266;
+}
+
+/* SCORE */
+
+.score-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.score--player > span, .score--computer > span, .separator {
+    color: #FBF5F3;
+    font-size: 5.4em;
+}
+
+.separator {
+    padding-top: 4px;
+}
+
+.mid-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.player--pick-panel, .computer--pick-panel {
+    display: flex;
+    flex-direction: column;
+    padding: 2.9em 0 0 0;
+}
+
+.player--pick, .computer--pick, .player--pick-last, .computer--pick-last {
+    width: 8.1em;
+    text-align: center;
+    color: #FBF5F3;
+    font-size: 2.2em;
+    padding-top: 16px;
+}
+
+
+/* REPLAY BUTTON */
+
+.replay-container {
+    height: 7em;
+}
+
+.replay--btn {
+    padding-top: 34px;
+}
+
+button {
+    height: 3em;
+    width: 8em;
+}
+
+
+
+
+
+
+
+
+
