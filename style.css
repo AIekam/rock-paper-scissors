@@ -67,7 +67,12 @@ h2 {
 img {
     width: 240px;
     height: auto;
-    border-radius: 21%;
+    border-radius: 12%;
+    transition: all 0.3s ease;
+}
+
+img:hover {
+    transform: scale(0.95);
 }
 
 .pick--rock > img {
@@ -113,14 +118,21 @@ img {
     padding: 2.9em 0 0 0;
 }
 
-.player--pick, .computer--pick, .player--pick-last, .computer--pick-last {
+.player--pick, .computer--pick {
     width: 8.1em;
     text-align: center;
     color: #FBF5F3;
     font-size: 2.2em;
-    padding-top: 16px;
+    padding-top: 4px;
 }
 
+.player--pick-last, .computer--pick-last {
+    color: #fbf5f359;
+    text-align: center;
+    font-size: 2.2em;
+    padding-top: 4px;
+    width: 8.1em;
+}
 
 /* REPLAY BUTTON */
 
@@ -129,13 +141,34 @@ img {
 }
 
 .replay--btn {
-    padding-top: 34px;
+    padding-top: 18px;
 }
 
+/* Replay Button Styling */
 button {
-    height: 3em;
-    width: 8em;
+    background-color: #364156; /* Matches the color of the main heading text */
+    border: none;
+    border-radius: 15px;
+    font-size: 2em; /* Increased font size */
+    font-family: 'New Amsterdam', sans-serif;
+    color: #FBF5F3; /* Dark background color for contrast */
+    cursor: pointer;
+    width: 5em; /* Increased width */
+    height: 1.7em; /* Increased height */
+    transition: all 0.3s ease;
 }
+
+button:hover {
+    background-color: #FBF5F3; /* Highlight color on hover */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    color: #11151C;
+}
+
+button:active {
+    transform: scale(1); /* Reset zoom when pressed */
+    background-color: #FBF5F3; /* Light color on active press */
+}
+
 
 
 
