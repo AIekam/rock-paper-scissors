@@ -72,7 +72,11 @@ img {
 }
 
 img:hover {
-    transform: scale(0.95);
+    transform: scale(0.93);
+}
+
+img:active {
+    transform: scale(0.95); /* Reset zoom when pressed */
 }
 
 .pick--rock > img {
@@ -102,20 +106,19 @@ img:hover {
 }
 
 .separator {
-    padding-top: 4px;
+    padding-top: 8px;
 }
 
 .mid-panel {
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 
 .player--pick-panel, .computer--pick-panel {
     display: flex;
     flex-direction: column;
-    padding: 2.9em 0 0 0;
+    padding: 2.3em 0 0 0;
 }
 
 .player--pick, .computer--pick {
@@ -129,9 +132,9 @@ img:hover {
 .player--pick-last, .computer--pick-last {
     color: #fbf5f359;
     text-align: center;
-    font-size: 2.2em;
+    font-size: 1.6em;
     padding-top: 4px;
-    width: 8.1em;
+    width: 100%;
 }
 
 /* REPLAY BUTTON */
