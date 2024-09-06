@@ -10,41 +10,102 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=New+Amsterdam&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game-header">
-        <h1><span id="header-text-rock">Rock</span> <span id="header-text-paper">Paper</span> <span id="header-text-scissors">Scissors</span></h1>
-    </div>
-
-    <div class="game-container">
-        <h2>Take your pick!</h2>
-
-        <div class="picks-container">
-            <div class="pick--rock"><img id="rock-img" src="img/rock.webp" alt="rock"></div>
-            <div class="pick--paper"><img id="paper-img" src="img/paper.webp" alt="paper"></div>
-            <div class="pick--scissors"><img id="scissors-img" src="img/scissors-opened.webp" alt="scissors"></div>
+    <div class="game">
+        <div class="game-header">
+            <h1><span id="header-text-rock">Rock</span> <span id="header-text-paper">Paper</span> <span id="header-text-scissors">Scissors</span></h1>
         </div>
-
-        <div class="score-panel">
-            <div class="score--player"><span class="score--player-span">0</span></div>
-
-            <div class="mid-panel">
-                <div class="player--pick-panel">
-                    <div class="player--pick">Your pick</div>
-                    <div class="player--pick-last">Your last pick</div>
+    
+        <div class="game-container">
+            <h2>Take your pick!</h2>
+    
+            <div class="picks-container">
+                <div class="pick--rock"><img id="rock-img" src="img/rock.webp" alt="rock"></div>
+                <div class="pick--paper"><img id="paper-img" src="img/paper.webp" alt="paper"></div>
+                <div class="pick--scissors"><img id="scissors-img" src="img/scissors-opened.webp" alt="scissors"></div>
+            </div>
+    
+            <div class="score-panel">
+                <div class="score--player"><span class="score--player-span">0</span></div>
+    
+                <div class="mid-panel">
+                    <div class="player--pick-panel">
+                        <div class="player--label">Player</div>
+                        <div class="player--pick">Your pick</div>
+                        <div class="player--pick-last">Your last pick</div>
+                    </div>
+    
+                    <div class="separator">-</div>
+    
+                    <div class="computer--pick-panel">
+                        <div class="player--label">Computer</div>
+                        <div class="computer--pick">Computer pick</div>
+                        <div class="computer--pick-last">Computer last pick</div>
+                    </div>
                 </div>
-
-                <div class="separator">-</div>
-
-                <div class="computer--pick-panel">
-                    <div class="computer--pick">Computer pick</div>
-                    <div class="computer--pick-last">Computer last pick</div>
+    
+                <div class="score--computer"><span class="score--computer-span">0</span></div>
+            </div>
+            
+            <div class="replay-container">
+                <div class="replay--btn"></div><button type="button" onclick="hideModal()">Restart</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-header--text"></p> 
+            </div>
+            <div class="modal-scores">
+                <div class="modal-scores--player">
+                    <div class="modal-scores--player-score">0</div>
+                </div>
+                <div class="modal-scores--separator">
+                    <div class="modal-scores--separator-box">
+                        <div class="modal-scores--separator-player-score">1</div>
+                        <div class="modal-scores--separator-player-pick">Paper</div>
+                        <div class="modal-scores--separator-separator">-</div>
+                        <div class="modal-scores--separator-computer-pick">Rock</div>
+                        <div class="modal-scores--separator-computer-score">0</div>
+                    </div>
+                    <div class="modal-scores--separator-box">
+                        <div class="modal-scores--separator-player-score">2</div>
+                        <div class="modal-scores--separator-player-pick">Rock</div>
+                        <div class="modal-scores--separator-separator">-</div>
+                        <div class="modal-scores--separator-computer-pick">Scissors</div>
+                        <div class="modal-scores--separator-computer-score">0</div>
+                    </div>
+                    <div class="modal-scores--separator-box">
+                        <div class="modal-scores--separator-player-score">3</div>
+                        <div class="modal-scores--separator-player-pick">Paper</div>
+                        <div class="modal-scores--separator-separator">-</div>
+                        <div class="modal-scores--separator-computer-pick">Rock</div>
+                        <div class="modal-scores--separator-computer-score">0</div>
+                    </div>
+                    <div class="modal-scores--separator-box">
+                        <div class="modal-scores--separator-player-score">4</div>
+                        <div class="modal-scores--separator-player-pick">Scissors</div>
+                        <div class="modal-scores--separator-separator">-</div>
+                        <div class="modal-scores--separator-computer-pick">Paper</div>
+                        <div class="modal-scores--separator-computer-score">0</div>
+                    </div>
+                    <div class="modal-scores--separator-box">
+                        <div class="modal-scores--separator-player-score">5</div>
+                        <div class="modal-scores--separator-player-pick">Paper</div>
+                        <div class="modal-scores--separator-separator">-</div>
+                        <div class="modal-scores--separator-computer-pick">Rock</div>
+                        <div class="modal-scores--separator-computer-score">0</div>
+                    </div>
+                </div>
+                <div class="modal-scores--computer">
+                    <div class="modal-scores--computer-score">0</div>
                 </div>
             </div>
-
-            <div class="score--computer"><span class="score--computer-span">0</span></div>
-        </div>
-
-        <div class="replay-container">
-            <div class="replay--btn"></div><button type="button">Restart</button>
+            <div class="modal-legend">
+                <div class="modal-legend--player-text">Player</div>
+                <div class="modal-legend--computer-text">Computer</div>
+            </div>
         </div>
     </div>
 

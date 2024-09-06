@@ -1,13 +1,28 @@
-* {
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+*, *::before, *::after {
     font-family: "New Amsterdam";
+    box-sizing: inherit;
 }
 
 body {
     margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     height: 100vh;
     justify-content: space-between;
+}
+
+body > div {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* HEADER STYLES */
@@ -103,6 +118,7 @@ img:active {
 .score--player, .score--computer {
     width: 35px;
     text-align: center;
+    padding-top: 3px;
 }
 
 .separator {
@@ -121,8 +137,13 @@ img:active {
 
 .mid-panel {
     display: flex;
-    justify-content: center;
     align-items: center;
+}
+
+.player--pick-panel, .computer--pick-panel {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
 }
 
 .player--pick, .computer--pick {
@@ -130,7 +151,6 @@ img:active {
     text-align: center;
     color: #FBF5F3;
     font-size: 2.2em;
-    padding-top: 4px;
     height: 42px;
 }
 
@@ -138,43 +158,180 @@ img:active {
     color: #fbf5f359;
     text-align: center;
     font-size: 1.6em;
-    padding-top: 4px;
     width: 100%;
     height: 30.5px;
 }
 
-.player--pick-panel, .computer--pick-panel {
+.player--label, .computer--label {
+    color: #FBF5F3;
+    font-size: 1.4em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.computer--label-border, .player--label-border {
+    border: 2px solid #FBF5F3;
+}
+
+/* WINNER SCREEN STYLING */
+
+.overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: none;
+    opacity: 0;
+    transition: opacity 1350ms ease-in-out; 
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;  
+    height: 100%; 
+    z-index: 1000;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 530px;
+    height: 380px;
+    background-color: #364156;
+    border-radius: 33px;
+}
+
+.modal-header--text {
+    color:#FBF5F3;
+    font-size: 3.1em;
+    margin-top: 0.8em;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.modal-scores {
     display: flex;
+    justify-content: center;
+    height: 110px;
+    color: #FBF5F3;
+    margin: 37px 0px 30px 0px;
+    gap: 20px;
+}
+
+.modal-scores--player, .modal-scores--computer {
+    flex: none;
+    height: 100px;
+    width: 0.5em;
+    font-size: 7em;
+}
+
+.modal-scores--player-score, .modal-scores--computer-score {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-scores--separator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    padding: 2.3em 0 0 0;
+    color: #FBF5F3;
+    height: 100px;
+    margin: 0 20px;
+}
+
+.modal-scores--separator-box {
+    width: 200px;
+    height: 20px;
+    display: flex;
+}
+
+.modal-scores--separator-player-score, 
+.modal-scores--separator-computer-score, 
+.modal-scores--separator-separator {
+    width: 20px;
+    text-align: center;
+}
+
+.modal-scores--separator-player-pick, .modal-scores--separator-computer-pick {
+    width: 70px;
+    text-align: center;
+}
+
+.modal-legend {
+    display: flex;
+    justify-content: center;
+    gap: 204px;
+}
+
+.modal-legend--player-text, .modal-legend--computer-text {
+    font-size: 2.5em;
+    color: #FBF5F3;
+    width: 130px;
+    text-align: center;
+}
+
+.modal-legend .modal-legend--player-text {
+    color: #6EEB83;
+}
+
+.modal-legend .modal-legend--computer-text {
+    color: #FF3A47;
+}
+
+.blur::before { /* blur */
+    backdrop-filter: blur(5px);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    content: "";
+    pointer-events: none;
 }
 
 /* REPLAY BUTTON */
 
 .replay-container {
     height: 7em;
+    display: flex;
+    justify-content: center;
+    z-index: 1002;
 }
 
 .replay--btn {
     padding-top: 18px;
 }
 
-/* Replay Button Styling */
 button {
-    background-color: #364156; /* Matches the color of the main heading text */
+    background-color: #364156;
     border: none;
     border-radius: 15px;
-    font-size: 2em; /* Increased font size */
+    font-size: 2em; 
     font-family: 'New Amsterdam', sans-serif;
-    color: #FBF5F3; /* Dark background color for contrast */
+    --button-color: #FBF5F3; 
+    color: var(--button-color);
     cursor: pointer;
-    width: 5em; /* Increased width */
-    height: 1.7em; /* Increased height */
+    width: 5em; 
+    height: 1.7em; 
     transition: all 0.3s ease;
 }
 
+:root {
+    --button-hover-bg-color: #FBF5F3; /* Default hover background color */
+}
+
 button:hover {
-    background-color: #FBF5F3; /* Highlight color on hover */
+    background-color: var(--button-hover-bg-color); /*  Highlight color on hover */
     transform: scale(1.05); /* Slight zoom effect on hover */
     color: #11151C;
 }
