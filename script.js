@@ -87,17 +87,10 @@ function showModal(winner) {  // Function to show modal and blur background
         document.body.style.setProperty('--button-hover-bg-color', '#F03A47');
     }
 
-    game.classList.add('blur', 'pointer-events-off'); // ADDS .blur::before STYLING to the .game div  
+    
     modal.style.display = "block";
     overlay.style.display = "block";
-
-    setTimeout(() => { 
-        overlay.style.opacity = 1; 
-    }, 10); 
-
-    setTimeout(() => {
-        game.classList.add('blur');
-    }, 100)
+    overlay.classList.add('blur', 'pointer-events-off'); // ADDS .blur::before STYLING to the .game div  
 }
 
 function hideModal() {  // Function to hide modal and remove blur
@@ -105,7 +98,7 @@ function hideModal() {  // Function to hide modal and remove blur
     setTimeout(() => {
         overlay.style.display = "none"; // Hide completely after transition
         modal.style.display = "none";
-        game.classList.remove('blur', 'pointer-events-off');
+        modal.classList.remove('blur', 'pointer-events-off');
     }, 1400); // Wait for the opacity transition to finish   
 }
 

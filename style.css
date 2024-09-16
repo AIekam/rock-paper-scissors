@@ -1,3 +1,7 @@
+:root {
+    --button-hover-bg-color: #FBF5F3; /* Default hover background color */
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -19,7 +23,7 @@ body {
     justify-content: space-between;
 }
 
-body > div {
+.game {
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -183,9 +187,28 @@ img:active {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 999;
-    display: none;
+    visibility: hidden;
     opacity: 0;
-    transition: opacity 1350ms ease-in-out; 
+    transition: opacity 500ms, visibility 500ms; 
+}
+
+.overlay-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.blur::before { /* blur */
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 500ms;
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    content: "";
+    pointer-events: none;
+}
+
+.blur-active::before {
+    backdrop-filter: blur(5px);
 }
 
 .modal {
@@ -207,6 +230,7 @@ img:active {
     height: 380px;
     background-color: #364156;
     border-radius: 33px;
+    transition: 0.5s;
 }
 
 .modal-header--text {
@@ -290,15 +314,6 @@ img:active {
     color: #FF3A47;
 }
 
-.blur::before { /* blur */
-    backdrop-filter: blur(5px);
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    content: "";
-    pointer-events: none;
-}
-
 /* REPLAY BUTTON */
 
 .replay-container {
@@ -324,10 +339,6 @@ button {
     width: 5em; 
     height: 1.7em; 
     transition: all 0.3s ease;
-}
-
-:root {
-    --button-hover-bg-color: #FBF5F3; /* Default hover background color */
 }
 
 button:hover {
